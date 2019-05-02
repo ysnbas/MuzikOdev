@@ -11,12 +11,12 @@ module.exports.userLogin = function (req, res) {
     sql.connect(webconfig, function (err) {
         if (err) console.log(err);
         var request1 = new sql.Request();
-        request1.query(' select * from Album order by AlbumId;select * from Sanatci order by SanatciId; select * from MuzikTur order by MuzikTurId;', function (err, verisonucu) {
+        request1.query(' select * from Album order by AlbumId;select * from Sanatci order by SanatciId; select * from MuzikTur order by MuzikTurId;', function (err, data) {
             if (err) {
                 console.log(err);
             }
             sql.close();
-            res.render('home', { veri: verisonucu.recordsets });
+            res.render('home', { veri: data.recordsets });
         });
     });
 }
@@ -27,7 +27,7 @@ module.exports.userDetay = function (req, res) {
         if (err) console.log(err);
         var request1 = new sql.Request();
 
-        request1.query("insert into Sanatci(SanatciAdi,SanatciYasiyormu,SanatciDogumTarihi,EklenmeTarihi)VALUES('" + req.body.isim + "'," + req.body.yasiyormu + "," + req.body.dogumtarihi + ",GETDATE())", function (err, sarkiverisi) {
+        request1.query("insert into Sanatci(SanatciAdi,SanatciYasiyormu,SanatciDogumTarihi,EklenmeTarihi)VALUES('" + req.body.isim + "'," + req.body.yasiyormu + "," + req.body.dogumtarihi + ",GETDATE())", function (err, data) {
             if (err) {
                 console.log(err);
             }
@@ -81,4 +81,35 @@ module.exports.userAlbumEkle = function (req, res) {
 
     });
 
+}
+module.exports.userSanatciGuncelle = function (req, res) {
+    sql.connect(webconfig, function (err) {
+        if (err) console.log(err);
+        var request1 = new sql.Request();
+        request1.query('select * from Sanatci', function (err, data) {
+            if (err) {
+                console.log(err);
+            }
+            sql.close();
+            res.render('sanatci_guncelleme', {
+                veri: data.recordset
+                
+            });
+        });
+    });
+}
+module.exports.SanatciGuncelle = function (req, res) {
+    sql.connect(webconfig, function (err) {
+        if (err) console.log(err);
+        var request1 = new sql.Request();
+        console.log(req.body);
+        request1.query("update Sanatci set SanatciAdi = '" + req.body.ad + "',SanatciDogumTarihi = " + req.body.dogumtarihi + ",SanatciYasiyormu = " + req.body.hayattami + " where Id = " + req.body.id + "",function (err, data) {
+                if (err) {
+                    console.log(err);
+                }
+                sql.close();
+                res.redirect('/login');
+            }
+        );
+    });
 }

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" />
+    <title>Sanatçı Güncelleme</title>
+    <style>
+     
+
+      .noselect {
+        -webkit-touch-callout: none !important; 
+        -webkit-user-select: none !important; 
+        -khtml-user-select: none !important; 
+        -moz-user-select: none !important; 
+        -ms-user-select: none !important; 
+        user-select: none !important; 
+        pointer-events: none !important;
+      }
+    </style>
+  </head>
+  
+
+  <body style="padding:50px 0;">
+    <% veri.forEach(function(personel){ %>
+    <form id="myForm" class="container" method="POST" action="/sanatci_guncelleme">
+      <h2 class="title">Sanatçı Güncelleme</h2>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label has-text-weight-normal">Sanatci Id</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input noselect" type="text" name="sanatciId" value="<%=personel.SanatciId%>" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label has-text-weight-normal">Eski Sanatci Adi</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input noselect" type="text" value="<%= personel.SanatciAdi %>" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label has-text-weight-normal">Yeni Sanatci Adi</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" name="sanatciAdi_G" id="sanatciAdi_G" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label has-text-weight-normal">Eski SanatciYasiyormu</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input noselect" type="text" value="<%= personel.SanatciYasiyormu %>" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label has-text-weight-normal">Yeni SanatciYasiyormu</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+                <label class="radio">
+                    <input type="radio" value="1" name="yasiyormu">
+                    Evet
+                </label>
+                <label class="radio">
+                    <input type="radio" value="0" name="yasiyormu">
+                    Hayır
+                </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label has-text-weight-normal">Eski Sanatci Dogum Tarihi</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input noselect" type="text" value="<%= personel.SanatciDogumTarihi %>" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label has-text-weight-normal">Yeni Sanatci Dogum Tarihi</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input" type="number" name="sanatciDogumTarihi_G" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label has-text-weight-normal">Eski Eklenme Tarihi</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input noselect" type="text" value="<%= personel.EklenmeTarihi%>" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label has-text-weight-normal">Yeni Eklenme Tarihi</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input" type="date" name="eklenmeTarihi_G"  />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label">
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <button type="submit" class="button is-primary">
+                Değişiklikleri Kaydet
+              </button>
+              <button class="button">
+                Çıkış
+              </button>
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+      
+    </form>
+    <% }); %>
+  </body>
+</html>

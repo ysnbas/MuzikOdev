@@ -33,7 +33,10 @@ app.get('/MuzikTurEkle', function (req, res) {
 
 app.post('/MuzikTurEkle', login.userMusic);
 
+app.get('/sanatci_guncelleme', login.userSanatciGuncelle);
+app.post('/sanatci_guncelleme', login.SanatciGuncelle);
 
-   
+
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

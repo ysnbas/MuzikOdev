@@ -30,7 +30,7 @@
                     <a class="button is-success" href="/MuzikTurEkle">Yeni Müzik Ekle</a>
                 </p>
             </nav>
-            
+
             <table class="table is-bordered">
                 <tr>
                     <th>
@@ -58,7 +58,7 @@
 
                 </tr>
                 <% veri[0].forEach(function(Al){ %>
-                   
+                
                     <tr>
                         <td>
                             <%=Al.AlbumId%>
@@ -78,12 +78,11 @@
                         <td><a class="button is-primary">Güncelle</a></td>
                         <td><a class="button is-danger">Sil</a></td>
                     </tr>
-                
-                    <% }); %>
+                <% }); %>
             </table>
-        
 
-        
+
+
             <table class="table is-bordered">
 
                 <thead>
@@ -114,7 +113,7 @@
                     </tr>
                 </thead>
                 <% veri[1].forEach(function(personel){ %>
-                   
+                    <form action="/sanatci_guncelleme" method="POST">
                 <tr>
                     <td>
                         <%=personel.SanatciId%>
@@ -131,16 +130,17 @@
                     <td>
                         <%= personel.EklenmeTarihi%>
                     </td>
-                    <td><a class="button is-primary">Güncelle</a></td>
+                    <td><a class="button is-primary" href="/sanatci_guncelleme">Güncelle</a></td>
                     <td><a class="button is-danger">Sil</a></td>
                 </tr>
-            
+            </form>
+
                 <% }); %>
-            
+
 
             </table>
-      
-        
+
+
             <table class="table is-bordered">
                 <tr>
                     <th>
@@ -157,25 +157,25 @@
                     </th>
 
                 </tr>
-               
+
                 <% veri[2].forEach(function(Song){ %>
-                    <tr>
-                        <td>
-                            <%=Song.MuzikTurId%>
-                        </td>
-                        <td>
-                            <%= Song.MuzikTur %>
-                        </td>
-                       
-                        <td><a class="button is-primary">Güncelle</a></td>
-                        
-                        <td><a class="button is-danger">Sil</a>
-                        </td>
-                    </tr>
-               
-                    <% }); %>
+                <tr>
+                    <td>
+                        <%=Song.MuzikTurId%>
+                    </td>
+                    <td>
+                        <%= Song.MuzikTur %>
+                    </td>
+
+                    <td><a class="button is-primary">Güncelle</a></td>
+
+                    <td><a class="button is-danger">Sil</a>
+                    </td>
+                </tr>
+
+                <% }); %>
             </table>
-        
+
         </div>
     </section>
 
