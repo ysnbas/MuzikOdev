@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+
+            <h2 class="title">
+
+                Kayıtlar
+
+            </h2>
+            <nav class="level">
+                <p class="level-item has-text-centered">
+                    <a class="button is-success" href="/detay">Yeni Kullanıcı Ekle</a>
+                </p>
+                <p class="level-item has-text-centered">
+                    <a class="button is-success" href="/AlbumEkle">Yeni Album Ekle</a>
+                </p>
+                <p class="level-item has-text-centered">
+                    <a class="button is-success" href="/MuzikTurEkle">Yeni Müzik Ekle</a>
+                </p>
+            </nav>
+            
+            <table class="table is-bordered">
+                <tr>
+                    <th>
+                        <div title="İd">Album İd</div>
+                    </th>
+                    <th>
+                        <div title="FirstName">Album Adı</div>
+                    </th>
+                    <th>
+                        <div title="FirstName">Çıkış Tarihi</div>
+                    </th>
+                    <th>
+                        <div title="LastName">Sanatci id</div>
+                    </th>
+                    <th>
+                        <div title="Date">Muzik Tür id</div>
+                    </th>
+
+                    <th>
+                        <div title="Update">Güncelle</div>
+                    </th>
+                    <th>
+                        <div title="Delete">Sil</div>
+                    </th>
+
+                </tr>
+                <% veri[0].forEach(function(Al){ %>
+                   
+                    <tr>
+                        <td>
+                            <%=Al.AlbumId%>
+                        </td>
+                        <td>
+                            <%= Al.AlbumAdi %>
+                        </td>
+                        <td>
+                            <%= Al.CikisTarihi %>
+                        </td>
+                        <td>
+                            <%= Al.SanatciId %>
+                        </td>
+                        <td>
+                            <%= Al.MuzikTurId%>
+                        </td>
+                        <td><a class="button is-primary">Güncelle</a></td>
+                        <td><a class="button is-danger">Sil</a></td>
+                    </tr>
+                
+                    <% }); %>
+            </table>
+        
+
+        
+            <table class="table is-bordered">
+
+                <thead>
+
+                    <tr>
+                        <th>
+                            <div title="İd">Sanatci İd</div>
+                        </th>
+                        <th>
+                            <div title="FirstName">İsim</div>
+                        </th>
+                        <th>
+                            <div title="LastName">Sanatçı Yaşiyor mu?</div>
+                        </th>
+                        <th>
+                            <div title="Date">Dogum Tarihi</div>
+                        </th>
+                        <th>
+                            <div title="Ekleme">Eklenme Tarihi</div>
+                        </th>
+                        <th>
+                            <div title="Update">Güncelle</div>
+                        </th>
+                        <th>
+                            <div title="Delete">Sil</div>
+                        </th>
+
+                    </tr>
+                </thead>
+                <% veri[1].forEach(function(personel){ %>
+                   
+                <tr>
+                    <td>
+                        <%=personel.SanatciId%>
+                    </td>
+                    <td>
+                        <%= personel.SanatciAdi %>
+                    </td>
+                    <td>
+                        <%= personel.SanatciYasiyormu %>
+                    </td>
+                    <td>
+                        <%= personel.SanatciDogumTarihi %>
+                    </td>
+                    <td>
+                        <%= personel.EklenmeTarihi%>
+                    </td>
+                    <td><a class="button is-primary">Güncelle</a></td>
+                    <td><a class="button is-danger">Sil</a></td>
+                </tr>
+            
+                <% }); %>
+            
+
+            </table>
+      
+        
+            <table class="table is-bordered">
+                <tr>
+                    <th>
+                        <div title="İd">Muzik Tür İd</div>
+                    </th>
+                    <th>
+                        <div title="FirstName">Müzik Tür Adı</div>
+                    </th>
+                    <th>
+                        <div title="Update">Güncelle</div>
+                    </th>
+                    <th>
+                        <div title="Delete">Sil</div>
+                    </th>
+
+                </tr>
+               
+                <% veri[2].forEach(function(Song){ %>
+                    <tr>
+                        <td>
+                            <%=Song.MuzikTurId%>
+                        </td>
+                        <td>
+                            <%= Song.MuzikTur %>
+                        </td>
+                       
+                        <td><a class="button is-primary">Güncelle</a></td>
+                        
+                        <td><a class="button is-danger">Sil</a>
+                        </td>
+                    </tr>
+               
+                    <% }); %>
+            </table>
+        
+        </div>
+    </section>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container" style="max-width: 600px;">
+            <div class="title">Kişi Bilgisi</div>
+            <form action="/detay" method="POST">
+                <label class="label">Ad</label>
+
+                <div class="field">
+                    <p class="control">
+                        <input class="input" name="isim" type="text">
+                    </p>
+                </div>
+
+
+                <label class="label">Doğum Tarihi</label>
+
+                <div class="field">
+                    <p class="control">
+                        <input class="input" name="dogumtarihi" type="number">
+                    </p>
+                </div>
+
+                <label class="label">Yaşıyor mu ?</label>
+
+                <div class="control">
+                    <label class="radio">
+                        <input type="radio" value="1" name="yasiyormu">
+                        Evet
+                    </label>
+                    <label class="radio">
+                        <input type="radio" value="0" name="yasiyormu">
+                        Hayır
+                    </label>
+                </div>
+                <label class="label">Eklenme Tarihi</label>
+
+                <div class="field">
+                    <p class="control">
+                        <input class="input" name="eklenmeTarihi" type="date">
+                    </p>
+                </div>
+                <div class="column">
+                    <input type="submit" value="Onayla" class="button is-link">
+
+                </div>
+                <div class="column">
+                    <a href="/login" class="button is-light">İptal</a>
+                </div>
+
+            </form>
+        </div>
+        </div>
+    </section>
+</body>
+
+</html>
