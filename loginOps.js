@@ -82,34 +82,29 @@ module.exports.userAlbumEkle = function (req, res) {
     });
 
 }
-module.exports.userSanatciGuncelle = function (req, res) {
-    sql.connect(webconfig, function (err) {
-        if (err) console.log(err);
-        var request1 = new sql.Request();
-        request1.query('select * from Sanatci', function (err, data) {
-            if (err) {
-                console.log(err);
-            }
-            sql.close();
-            res.render('sanatci_guncelleme', {
-                veri: data.recordset
-                
-            });
-        });
-    });
-}
 module.exports.SanatciGuncelle = function (req, res) {
     sql.connect(webconfig, function (err) {
         if (err) console.log(err);
         var request1 = new sql.Request();
         console.log(req.body);
-        request1.query("update Sanatci set SanatciAdi = '" + req.body.ad + "',SanatciDogumTarihi = " + req.body.dogumtarihi + ",SanatciYasiyormu = " + req.body.hayattami + " where Id = " + req.body.id + "",function (err, data) {
+        request1.query(      `
+        UPDATE Sanatci
+          set 
+            SanatciAdi = '${req.body.sanatciAdi}', 
+            SanatciYasiyormu = '${req.body.yasiyormu}', 
+            SanatciDogumTarihi = '${req.body.sanatciDogumTarih}', 
+            EklenmeTarihi = '${req.body.eklenmeTarihi_G}'
+          where
+            SanatciId = ${req.body.sanatciId}
+        `,
+        function (err, data) {
                 if (err) {
                     console.log(err);
                 }
                 sql.close();
-                res.redirect('/login');
+                res.render('sanatci_guncelleme',);
             }
         );
     });
 }
+

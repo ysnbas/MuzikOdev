@@ -33,7 +33,9 @@ app.get('/MuzikTurEkle', function (req, res) {
 
 app.post('/MuzikTurEkle', login.userMusic);
 
-app.get('/sanatci_guncelleme', login.userSanatciGuncelle);
+app.get('/sanatci_guncelleme', function (req,res) {
+    res.render("sanatci_guncelleme");
+});
 app.post('/sanatci_guncelleme', login.SanatciGuncelle);
 
 

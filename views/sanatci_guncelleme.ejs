@@ -8,7 +8,6 @@
     <title>Sanatçı Güncelleme</title>
     <style>
      
-
       .noselect {
         -webkit-touch-callout: none !important; 
         -webkit-user-select: none !important; 
@@ -23,10 +22,8 @@
   
 
   <body style="padding:50px 0;">
-    <% veri.forEach(function(personel){ %>
     <form id="myForm" class="container" method="POST" action="/sanatci_guncelleme">
       <h2 class="title">Sanatçı Güncelleme</h2>
-
       <div class="field is-horizontal">
         <div class="field-label is-normal">
           <label class="label has-text-weight-normal">Sanatci Id</label>
@@ -34,24 +31,12 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input noselect" type="text" name="sanatciId" value="<%=personel.SanatciId%>" />
+              <input class="input noselect" type="text" name="sanatciId"  />
             </div>
           </div>
         </div>
       </div>
-
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label has-text-weight-normal">Eski Sanatci Adi</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <div class="control">
-              <input class="input noselect" type="text" value="<%= personel.SanatciAdi %>" />
-            </div>
-          </div>
-        </div>
-      </div>
+     
       <div class="field is-horizontal">
         <div class="field-label is-normal">
           <label class="label has-text-weight-normal">Yeni Sanatci Adi</label>
@@ -64,19 +49,7 @@
           </div>
         </div>
       </div>
-
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label has-text-weight-normal">Eski SanatciYasiyormu</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <div class="control">
-              <input class="input noselect" type="text" value="<%= personel.SanatciYasiyormu %>" />
-            </div>
-          </div>
-        </div>
-      </div>
+      
       <div class="field is-horizontal">
         <div class="field-label is-normal">
           <label class="label has-text-weight-normal">Yeni Sanatci Yasiyormu</label>
@@ -96,19 +69,7 @@
           </div>
         </div>
       </div>
-
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label has-text-weight-normal">Eski Sanatci Dogum Tarihi</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <div class="control">
-              <input class="input noselect" type="text" value="<%= personel.SanatciDogumTarihi %>" />
-            </div>
-          </div>
-        </div>
-      </div>
+      
       <div class="field is-horizontal">
         <div class="field-label is-normal">
           <label class="label has-text-weight-normal">Yeni Sanatci Dogum Tarihi</label>
@@ -121,19 +82,8 @@
           </div>
         </div>
       </div>
-
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label has-text-weight-normal">Eski Eklenme Tarihi</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <div class="control">
-              <input class="input noselect" type="text" value="<%= personel.EklenmeTarihi%>" />
-            </div>
-          </div>
-        </div>
-      </div>
+      
+      
       <div class="field is-horizontal">
         <div class="field-label is-normal">
           <label class="label has-text-weight-normal">Yeni Eklenme Tarihi</label>
@@ -146,7 +96,6 @@
           </div>
         </div>
       </div>
-
       <div class="field is-horizontal">
         <div class="field-label">
         </div>
@@ -163,10 +112,8 @@
           </div>
         </div>
         
-
       </div>
       
     </form>
-    <% }); %>
   </body>
 </html>
