@@ -1,11 +1,14 @@
 const sql = require('mssql')
-var webconfig = {
-    user: 'Depo',
-    password: 'ysnbas',
-    server: '192.168.0.26',
-    database: 'MEDIPILIMDB'
-};
 
+var webconfig = {
+    user: "yasinzz",
+    password: "soft.SQLDatabase",   
+    server: 'nodejsyasin.database.windows.net',
+    database: "MEDIPOLIMDB",
+    options: {
+      encrypt: true  
+    }
+};
 
 module.exports.userLogin = function (req, res) {
     sql.connect(webconfig, function (err) {
@@ -62,6 +65,8 @@ module.exports.userAlbum = function (req, res) {
             }
             sql.close();
             res.render('AlbumEkle', { veri1: verisonucu.recordsets });
+
+     
         });
     });
 }
